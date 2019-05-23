@@ -1,5 +1,7 @@
 package com.example.chegg30.Model;
 
+import android.widget.Toast;
+
 import com.example.chegg30.Entity.Question;
 import com.example.chegg30.Entity.User;
 
@@ -22,6 +24,7 @@ public class Database {
         User user3 = new User("AluminumMonster", "password");
         User user4 = new User("GoldenGod",  "password");
         User user5 = new User("CharDeeMacDennis", "password");
+        userArrayList.add(new User("KittenMittens", "passsword"));
         userArrayList.add(user1);
         userArrayList.add(user2);
         userArrayList.add(user3);
@@ -47,8 +50,7 @@ public class Database {
      * @return true if user is registered false otherwise
      */
     public boolean validUser(User user) {
-        //TODO in class
-        return false;
+        return userArrayList.contains(user);
     }
     /**
      * only called when a user is found to be invalid
@@ -57,8 +59,14 @@ public class Database {
      *
      */
     public String returnErrorMessage(User user) {
-        //TODO in class
-        return null;
+        boolean validUsername = false;
+        for (User userObj: userArrayList) {
+            if(userObj.getUsername().equals(user.getUsername())) {
+                validUsername = true;
+            }
+        }
+
+        return validUsername ? "Invalid Password" : "Invalid Username";
 
     }
 
@@ -68,7 +76,7 @@ public class Database {
     *
      */
     public void registerUser(User user) {
-        //TODO in class
+        userArrayList.add(user);
 
     }
 
@@ -78,7 +86,7 @@ public class Database {
     *
      */
     public void addQuestion(Question question) {
-       //TODO in class
+      questionArrayList.add(question);
 
 
     }
