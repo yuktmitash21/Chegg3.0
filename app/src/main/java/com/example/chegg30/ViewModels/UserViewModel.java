@@ -31,7 +31,7 @@ public class UserViewModel extends AndroidViewModel {
      * @param username username of user
      * @param password password of user
      * @return -1 if invalid user
-     * @return user id if valid user
+     * @return hashcode if valid user
      */
 
     public int validUser(String username, String password) {

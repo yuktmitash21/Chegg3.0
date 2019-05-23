@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
 
+        registrationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = usernameText.getText().toString();
+                String password = passwordText.getText().toString();
+                viewModel.registerUser(username, password);
+                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(mainActivity);
+            }
+        });
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,19 +64,6 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(mainScreenIntent);
                     }
                 }
-
-
-            }
-        });
-
-        registrationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String username = usernameText.getText().toString();
-                String password = passwordText.getText().toString();
-                viewModel.registerUser(username, password);
-                Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(mainScreen);
 
             }
         });

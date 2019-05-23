@@ -42,7 +42,7 @@ public class MainScreen extends AppCompatActivity {
         int id = getIntent().getIntExtra("id", 0);
         user = userViewModel.findUserbyId(id);
 
-        Toast.makeText(getApplicationContext(), user.getUsername(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Hello " + user.getUsername() + "!", Toast.LENGTH_LONG).show();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
